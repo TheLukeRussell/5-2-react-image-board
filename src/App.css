@@ -25,6 +25,7 @@ h1 {
   font-size: 60px;
   text-shadow: 3pt -3pt 2px #3a3a3a;
   -webkit-text-stroke: .5px #00ff3b;
+  
 }
 h2 {
   font-size: 32px;
@@ -38,7 +39,7 @@ h3 {
 
 body {
   background-image: radial-gradient(#7e7e7e, #3a3a3a);
-  opacity: 1;
+  /* opacity: 1; */
   animation: fadeIn ease 4s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -79,17 +80,19 @@ input {
 input::placeholder {
   color: #00ff3b;
   font-size: 12px;
-  opacity: .7;
+  opacity: .5;
 }
 
 #button {
   background-color: #000;
   color: #00ff3b;
-  padding: 10px;
+  text-align: center;
   outline: none;
-  margin: 20px;
-  width: 200px;
-  font-size: 16px;
+  margin: 2%;
+  font-weight: bold;
+  height: 5%;
+  width: 10%;
+  font-size: 70%;
   border: thin groove #00ff3b;
 }
 
@@ -97,4 +100,22 @@ input::placeholder {
   background-color: #00ff3b;
   color: #000;
   border: thin groove #000;
+}
+
+#radical {
+  display: inline-block;
+  animation: rotate-div ease 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotate-div {
+0% {
+transform: rotateX(0deg) rotateY(0deg);
+} 
+/* 50% {
+transform: rotateX(-180deg) rotateY(90deg)
+}  */
+100% {
+transform: rotateX(-360deg) rotateY(0deg);
+}
 }
