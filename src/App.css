@@ -3,6 +3,55 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+img {
+  width: 50%;
+  transition: ease .5s;
+}
+
+img:hover {
+  width: 55%;
+  transition: ease .5s;
+}
+
+.image-list-div {
+  margin-top: 30px;
+  margin-bottom: 150px;
+}
+
+h3 {
+  font-size: 26px;
+  font-family: cursive;
+}
+
 body {
-  background-color: #ADD8E6;
+  background-color: #666569;
+}
+
+.image-form-container {
+  padding: 20px;
+}
+
+input {
+  padding: 10px;
+  margin: 10px;
+  width: 600px;
+}
+
+#caption {
+  padding-bottom: 40px;
+}
+
+button {
+  background-color: #666569;
+  color: #FFF;
+  padding: 10px;
+  outline: none;
+  margin: 20px;
+  width: 200px;
+  font-size: 18px;
+}
+
+button:active {
+  background-color: #666569;
+  color: #FFF;
 }
