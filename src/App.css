@@ -4,15 +4,15 @@
 }
 
 img {
-  width: 50%;
+  width: 55%;
   border: thin #00ff3b groove;
   transition: ease .5s;
 }
 
 img:hover {
-  width: 55%;
+  width: 60%;
   transition: ease .5s;
-  border: thin transparent groove;
+  border: 0px groove transparent;
   box-shadow: 0px 0px 34px 0px #000;
 }
 
@@ -55,7 +55,6 @@ body {
   }
 
 
-
 .image-form-container {
   padding: 20px;
   border-style: groove;
@@ -95,7 +94,7 @@ button {
 }
 
 button:active {
-  background-color: #000;
-  color: #00ff3b;
-  border: 1pt solid #00ff3b;
+  background-color: #00ff3b;
+  color: #000;
+  border: thin groove #000;
 }

@@ -22,11 +22,14 @@ class ImageForm extends Component {
 
   handleButton = (event) => {
     event.preventDefault();
+
     const picture = {
       url: this.state.url,
       caption:this.state.caption
     }
-console.log(picture);
+
+    this.props.handleButton(picture);
+
     this.setState({
       url: '', 
       caption: ''
@@ -37,8 +40,8 @@ console.log(picture);
   
     return(
       <div className='image-form-container'>
-        <h2>Submit your own photo below!</h2>
-      <form onSubmit={this.handleButton} className='image-form'>
+        <h2>Submit your own RADICAL photo below!</h2>
+      <form className='image-form'>
         <label htmlFor='url'>
         <input id='image-url' type='text' placeholder='Image URL' value={this.state.url} onChange={this.handleChange}></input>
         </label>
@@ -47,7 +50,7 @@ console.log(picture);
           <input id='caption' type='text' placeholder='Image Caption' value={this.state.caption} onChange={this.handleChange}></input>
         </label>
           <div></div>
-        <button type="submit">- Submit Your Photo -</button>
+        <button onClick={this.handleButton} type="submit" value="add photo">- Submit Your Photo -</button>
       </form>
       </div>
     )
@@ -56,10 +59,10 @@ console.log(picture);
 
 class ImageList extends Component {
   render() {
-let pictures = this.props.pictures.map(function(picture) {
+let pictures = this.props.pictures.map(function(picture, index) {
   return (
-    <div className="image-list-div">
-      <img src={picture.url}/>
+    <div key={index} className="image-list-div">
+      <img src={picture.url} alt='this is definitely a meaningful alt text'/>
       <h3>{picture.caption}</h3>
     </div>
   )
@@ -83,12 +86,22 @@ class ImageBoard extends Component {
       {url: 'https://www.teslarati.com/wp-content/uploads/2019/09/Crew-Dragon-DM-1-orbit-tall-pano-SpaceX-crop-3.jpg', caption: 'Space X Vessel in Space'}
     ]
   })
+
+handleButton(picture) {
+  let pictures = this.state.pictures.slice();
+  pictures.unshift(picture);
+  this.setState({
+    pictures
+  })
+}
+
   render() {
     return(
       <div className='main-app'>
-      <h1>A Radical Image Board</h1>
-      <ImageForm className='image-form' />
+      <h1>My RADICAL Image Board</h1>
+      <ImageForm className='image-form' handleButton={this.handleButton}/>
       <ImageList className='image-list' pictures={this.state.pictures}/>
+      <h1>Have a RADICAL day!</h1>
       </div>
     )
   }
