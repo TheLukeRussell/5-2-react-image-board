@@ -5,11 +5,11 @@ class ImageForm extends Component {
 
   state = ({
     url: '',
-    caption: ''
+    caption: '',
   })
 
   handleChange = (event) => {
-    if (event.target.id === 'image-url') {
+    if (event.target.id === 'url') {
       this.setState({
       url: event.target.value
     })
@@ -22,7 +22,7 @@ class ImageForm extends Component {
 
   handleButton = (event) => {
     event.preventDefault();
-
+    
     const picture = {
       url: this.state.url,
       caption:this.state.caption
@@ -41,16 +41,16 @@ class ImageForm extends Component {
     return(
       <div className='image-form-container'>
         <h2>Submit your own RADICAL photo below!</h2>
-      <form className='image-form'>
+      <form autocomplete="off" className='image-form' noValidate >
         <label htmlFor='url'>
-        <input id='image-url' type='text' placeholder='Image URL' value={this.state.url} onChange={this.handleChange}></input>
+        <input id='url' type='URL' name='url' placeholder='Image URL' value={this.state.url} onChange={this.handleChange} noValidate />
         </label>
           <div></div>
         <label htmlFor='caption'>
-          <input id='caption' type='text' placeholder='Image Caption' value={this.state.caption} onChange={this.handleChange}></input>
+          <input id='caption' type='text' name='caption' placeholder='Image Caption' value={this.state.caption} onChange={this.handleChange} noValidate />
         </label>
           <div></div>
-        <button onClick={this.handleButton} type="submit" value="add photo">- Submit Your Photo -</button>
+        <input onClick={this.handleButton} id='button' type="submit" value="- Submit Your Photo -"/>
       </form>
       </div>
     )
@@ -62,7 +62,7 @@ class ImageList extends Component {
 let pictures = this.props.pictures.map(function(picture, index) {
   return (
     <div key={index} className="image-list-div">
-      <img src={picture.url} alt='this is definitely a meaningful alt text'/>
+      <img src={picture.url} alt=''/>
       <h3>{picture.caption}</h3>
     </div>
   )
@@ -87,7 +87,7 @@ class ImageBoard extends Component {
     ]
   })
 
-handleButton(picture) {
+handleButton = (picture) => {
   let pictures = this.state.pictures.slice();
   pictures.unshift(picture);
   this.setState({

@@ -82,7 +82,7 @@ input::placeholder {
   opacity: .7;
 }
 
-button {
+#button {
   background-color: #000;
   color: #00ff3b;
   padding: 10px;
@@ -93,7 +93,7 @@ button {
   border: thin groove #00ff3b;
 }
 
-button:active {
+#button:active {
   background-color: #00ff3b;
   color: #000;
   border: thin groove #000;
