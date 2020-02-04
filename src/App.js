@@ -86,7 +86,7 @@ class ImageBoard extends Component {
   render() {
     return(
       <div className='main-app'>
-      <h1>Luke's Image Board!</h1>
+      <h1>A Radical Image Board</h1>
       <ImageForm className='image-form' />
       <ImageList className='image-list' pictures={this.state.pictures}/>
       </div>
